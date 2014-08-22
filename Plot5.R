@@ -32,10 +32,10 @@ b <- merge(data25, dataclass, by = "SCC")
 ## Select "ON-ROAD" sources
 c <- b[grepl("ON-ROAD", b$type) == TRUE, ]
 ## select Baltimore fips
-d <- c[grepl("24510", c$fips) == TRUE, ]
+e <- c[grepl("24510", c$fips) == TRUE, ]
 
 ## sum
-aggpol <- aggregate(d$Emissions, list(year = d$year), sum)
+aggpol <- aggregate(e$Emissions, list(year = e$year), sum)
 
 ## PLOTS
 
@@ -47,9 +47,9 @@ title(main = expression("Total Baltimore ON-ROAD PM"[2.5]*" by year"))
 
 ## Store plot to .png file
 png(filename=paste0(d, "/Plot5.png"))
-plot(aggpol, type="o", col=2, lty=1, ylim=c(0, 1000), lwd = 2, xlim= c(1998, 2008), ylab=expression('Total Baltimore ONROAD PM'[2.5]))
+plot(aggpol, type="o", col=2, lty=1, ylim=c(0, 1000), lwd = 2, xlim= c(1998, 2008), ylab=expression('Total Baltimore ON-ROAD PM'[2.5]))
 abline(lm(aggpol$x~aggpol$year),col="blue", lty=2, lwd=1)
-title(main = expression("Total Baltimore ONROAD PM"[2.5]*" by year"))
+title(main = expression("Total Baltimore ON-ROAD PM"[2.5]*" by year"))
 dev.off()
 
 ##
