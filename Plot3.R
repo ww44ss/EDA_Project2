@@ -3,7 +3,7 @@
 ## August 2014
 
 ## Plot3.R
-## Creates a plot of total PM2.5 emissions for Question 1.
+## Creates a plot of total PM2.5 emission trends for different sources for Question 3.
 
 ## Get packages
 require(RDS)
@@ -20,7 +20,7 @@ dataclass <- readRDS(paste0(d, "/exdata-data-NEI_data/Source_Classification_Code
 
 data25 <- data25r[complete.cases(data25r),]
 
-## Create sample to test program changes wit shorter processing times
+## Create sample to test program changes with shorter processing times
 ## Use this expression to create a sample of 20000 random elements of the data to reduce processing time
 ## data25 <- data25[c(1, sample(1:16497651,20000,replace=T)),]
 
