@@ -16,12 +16,10 @@ map('usa')
 
 stop ("here")
 ## GET DATA
-## this simple instruction just checks to see if the data are already in memory and if not then read them in. 
-## it turns out this has been a huge timesaver FYI.
+        ## this simple instruction just checks to see if the data are already in memory and if not then read them in. 
+        ## it turns out this has been a huge timesaver FYI.
 
-if(data25[1,1]=="09001") {print("data appears to be loaded")} else {
-        
-        ## Create file paths and read data
+
         d <- getwd()
         data25r <- readRDS(paste0(d, "/exdata-data-NEI_data/summarySCC_PM25.rds"))
         dataclass <- readRDS(paste0(d, "/exdata-data-NEI_data/Source_Classification_Code.rds"))
@@ -40,7 +38,7 @@ if(data25[1,1]=="09001") {print("data appears to be loaded")} else {
         #merge data sets (PM2.5 and class)
         combo <- merge(data25, dataclass, by = "SCC")
         
-}
+
 
 if(onroadflag == "setp6") {print("onroad appears good for p6")} else {
         ## Select "ON-ROAD" sources
